@@ -2,10 +2,44 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>ray tracing demo</title>
+    <title>RAY TRACING DEMO</title>
+    <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body>
-    <div>ray tracing demo</div>
+    <div class="page-container">
+
+      <div class="result-container">
+        <div class="title">RAY TRACING DEMO</div>
+        <div class="main-canvas-container">
+          <canvas id="main-canvas" class="main-canvas"></canvas>
+        </div>
+      </div>
+
+      <div class="ctrl-container">
+        <div class="buttons">
+          <button>RENDER</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- canvas resize -->
+    <script>
+      var debounceTimer;
+      function reCalculateCanvasWidth() {
+        var canvas = document.getElementById('main-canvas');
+        canvas.style.height = canvas.offsetWidth + 'px';
+      }
+      window.addEventListener('resize', function() {
+        clearTimeout(debounceTimer);
+        setTimeout(reCalculateCanvasWidth, 500);
+      });
+      window.addEventListener('load', function() {
+        reCalculateCanvasWidth();
+      })
+    </script>
+
+    <!-- main -->
     <script src="dist/main.js"></script>
   </body>
 </html>
