@@ -15,7 +15,7 @@ html, body, .page-container {
 .result-container {
   box-sizing: border-box;
   flex: 2;
-  min-width: 300px;
+  min-width: 500px;
   height: 100%;
   overflow: auto;
   padding: 20px;
