@@ -6,7 +6,7 @@ export class CanvasCtrl {
   private canvasEl: HTMLCanvasElement;
   private context2d: CanvasRenderingContext2D;
 
-  constructor(private id: string, private width = 500, private height = 500) {
+  constructor(public readonly id: string, public readonly width = 500, public readonly height = 500) {
     this.canvasEl = document.getElementById(id) as HTMLCanvasElement;
     this.initCanvas(width, height);
   }
@@ -40,7 +40,7 @@ export class CanvasCtrl {
         pixels[i++] = 255;
       }
     }
-    console.log(imgData);
+    // console.log(imgData);
     this.context2d.putImageData(imgData, 0, 0);
   }
 

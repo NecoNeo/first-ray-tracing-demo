@@ -1,5 +1,7 @@
 export class Vector3D {
 
+  static readonly Zero = new Vector3D(0, 0, 0);
+
   constructor(public readonly x: number, public readonly y: number, public readonly z: number) {}
 
   copy() {
