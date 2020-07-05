@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html, body, .page-container {
@@ -25,7 +26,6 @@ html, body, .page-container {
 
 .title {
   margin: 10px;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: #8080e0;
 }
@@ -54,4 +54,9 @@ html, body, .page-container {
 .buttons button {
   margin: 5px;
   padding: 5px 15px;
+}
+
+.fps-container {
+  color: gray;
+  padding: 5px;
 }

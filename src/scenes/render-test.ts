@@ -18,10 +18,21 @@ plane.setMaterial(new CheckerMaterial(0.1, 0.5))
 
 // export const renderTestScene = {
 //   scene: new GeometrySet([sphere1, sphere2, plane]),
-//   camera: new PerspectiveCamera(new Vector3D(0, 5, 15), new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), 90)
+//   camera: new PerspectiveCamera(new Vector3D(0, 5, 45), new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), 45)
 // }
 
+const scene = new GeometrySet([sphere1, sphere2, plane]);
+
 export const renderTestScene = {
-  scene: new GeometrySet([sphere1, sphere2, plane]),
-  camera: new PerspectiveCamera(new Vector3D(0, 5, 45), new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), 45)
+  getSnapshot(t: number) {
+    return {
+      scene,
+      camera: new PerspectiveCamera(
+        new Vector3D(Math.sin(t * Math.PI / 180) * 45, 5, Math.cos(t * Math.PI / 180) * 45),
+        (new Vector3D(Math.sin(t * Math.PI / 180 - Math.PI), 0, -Math.cos(t * Math.PI / 180))).normalize(),
+        (new Vector3D(0, 1, 0)).normalize(),
+        45
+      )
+    };
+  }
 }

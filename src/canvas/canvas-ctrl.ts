@@ -23,6 +23,8 @@ export class CanvasCtrl {
     return this.context2d.getImageData(x, y, w, h);
   }
 
+  clear() {}
+
   render(imgData: ImageData, dx = 0, dy = 0) {
     this.context2d.putImageData(imgData, dx, dy);
   }

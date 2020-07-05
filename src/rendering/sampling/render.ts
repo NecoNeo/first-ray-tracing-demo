@@ -33,7 +33,7 @@ export function render (
   scene: Geometry,
   camera: Camera,
   sampleMethod?: SampleMethod,
-  options = { maxReflect: 3 }
+  options = { maxReflect: 2 }
 ) {
   if (!sampleMethod) { sampleMethod = normalTest; }
   const pixels = imgData.data;

@@ -5,16 +5,41 @@ import { rayTracing } from './rendering/sampling/ray-tracing/ray-tracing';
 
 
 const mainCanvasCtrl = new CanvasCtrl('main-canvas');
-mainCanvasCtrl.renderTest();
+
+let runningStatus = false;
+let renderingTimer: number;
 
 
-document.querySelector('#depth-test').addEventListener('click', () => {
-  mainCanvasCtrl.render(
-    render(
-      mainCanvasCtrl.getImageData(),
-      renderTestScene.scene,
-      renderTestScene.camera,
-      rayTracing
-    )
-  );
+document.querySelector('#render').addEventListener('click', () => {
+  if (runningStatus) {
+    window.clearTimeout(renderingTimer);
+    runningStatus = false;
+    return;
+  }
+  runningStatus = true;
+  let t = 0;
+  let lastCountFrame = 0;
+  let lastCountTimestamp = (new Date()).getTime();
+
+  const drawFrame = () => {
+    const snapshot = renderTestScene.getSnapshot(t);
+    mainCanvasCtrl.render(
+      render(
+        mainCanvasCtrl.getImageData(),
+        snapshot.scene,
+        snapshot.camera,
+        rayTracing
+      )
+    );
+    t++;
+    const timestamp = (new Date()).getTime();
+    if (timestamp - lastCountTimestamp >= 1000) {
+      const fps = t - lastCountFrame;
+      lastCountTimestamp = timestamp;
+      lastCountFrame = t;
+      document.querySelector('#fps-number').innerHTML = `${fps}`;
+    }
+    renderingTimer = setTimeout(drawFrame, 0);
+  };
+  drawFrame();
 }, false);
