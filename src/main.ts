@@ -1,8 +1,8 @@
 import { CanvasCtrl } from "./canvas/canvas-ctrl";
 import { renderDepth } from "./rendering/depth-test";
-import { Sphere } from "./objects/geometries/sphere";
-import { PerspectiveCamera } from "./objects/cameras/perspective-camera";
-import { Vector3D } from "./objects/vector/vector3d";
+import { Sphere } from "./rendering/geometries/sphere/sphere";
+import { PerspectiveCamera } from "./rendering/cameras/perspective-camera";
+import { Vector3D } from "./rendering/vector/vector3d";
 
 
 const mainCanvasCtrl = new CanvasCtrl('main-canvas');

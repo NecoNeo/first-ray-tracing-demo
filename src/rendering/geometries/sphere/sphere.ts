@@ -1,6 +1,6 @@
-import { Vector3D } from "../vector/vector3d";
-import { Ray3D } from "../ray/ray3d";
-import { IntersectResult } from "../intersect-result/intersect-result";
+import { Vector3D } from "../../vector/vector3d";
+import { Ray3D } from "../../ray/ray3d";
+import { IntersectResult } from "../../intersect-result/intersect-result";
 
 
 export class Sphere {

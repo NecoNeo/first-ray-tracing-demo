@@ -1,5 +1,5 @@
-import { PerspectiveCamera } from "../objects/cameras/perspective-camera";
-import { Sphere } from "../objects/geometries/sphere";
+import { PerspectiveCamera } from "./cameras/perspective-camera";
+import { Sphere } from "./geometries/sphere/sphere";
 
 
 const MIN_BRIGHTNESS = 30;
