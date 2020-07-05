@@ -13,7 +13,7 @@ export class CheckerMaterial extends Material {
     public readonly scale: number,
     public readonly reflectiveness?: number
   ) {
-    super();
+    super(reflectiveness);
   }
 
   sample(ray: Ray3D, position: Vector3D, normal: Vector3D) {

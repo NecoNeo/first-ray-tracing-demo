@@ -16,7 +16,7 @@ export class PhongMaterial extends Material {
     public readonly shininess: number,
     public readonly reflectiveness?: number
   ) {
-    super();
+    super(reflectiveness);
   }
 
   sample(ray: Ray3D, position: Vector3D, normal: Vector3D) {

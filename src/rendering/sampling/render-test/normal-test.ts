@@ -1,21 +1,15 @@
 import { IntersectResult } from "../../intersect-result/intersect-result";
+import { Color } from "../../color/color";
 
 
-const MIN_BRIGHTNESS = 30;
+const MIN_BRIGHTNESS = 30 / 255;
 
 export const normalTest = {
   sample(result: IntersectResult) {
-    const sampleResult = new Uint8ClampedArray(4);
     if (result.hit) {
-      sampleResult[0] = (result.normal.x + 1) * 128;
-      sampleResult[1] = (result.normal.y + 1) * 128;
-      sampleResult[2] = (result.normal.z + 1) * 128;
+      return new Color((result.normal.x + 1) / 2, (result.normal.y + 1) / 2, (result.normal.z + 1) / 2);
     } else {
-      sampleResult[0] = MIN_BRIGHTNESS;
-      sampleResult[1] = MIN_BRIGHTNESS;
-      sampleResult[2] = MIN_BRIGHTNESS;
+      return new Color(MIN_BRIGHTNESS, MIN_BRIGHTNESS, MIN_BRIGHTNESS);
     }
-    sampleResult[3] = 255;
-    return sampleResult;
   }
 }

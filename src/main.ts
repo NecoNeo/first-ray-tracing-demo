@@ -8,7 +8,7 @@ const mainCanvasCtrl = new CanvasCtrl('main-canvas');
 mainCanvasCtrl.renderTest();
 
 
-document.getElementById('depth-test').addEventListener('click', () => {
+document.querySelector('#depth-test').addEventListener('click', () => {
   mainCanvasCtrl.render(
     render(
       mainCanvasCtrl.getImageData(),

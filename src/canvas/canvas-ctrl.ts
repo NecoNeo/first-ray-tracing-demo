@@ -7,7 +7,7 @@ export class CanvasCtrl {
   private context2d: CanvasRenderingContext2D;
 
   constructor(public readonly id: string, public readonly width = 500, public readonly height = 500) {
-    this.canvasEl = document.getElementById(id) as HTMLCanvasElement;
+    this.canvasEl = document.querySelector(`#${id}`) as HTMLCanvasElement;
     this.initCanvas(width, height);
   }
 

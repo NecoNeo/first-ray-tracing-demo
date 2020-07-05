@@ -8,15 +8,20 @@ import { Plane } from '../rendering/geometries/plane/plane';
 import { CheckerMaterial } from '../rendering/materials/checker/checker';
 
 
-const sphere1 = new Sphere(new Vector3D(-10, 10, -10), 10);
-const sphere2 = new Sphere(new Vector3D(10, 10, -10), 10);
+const sphere1 = new Sphere(new Vector3D(-8, 12, -8), 10);
+const sphere2 = new Sphere(new Vector3D(10, 10, -12), 10);
 const plane = new Plane(new Vector3D(0, 1, 0), 0);
 
-sphere1.setMaterial(new PhongMaterial(Color.Red, Color.White, 16));
-sphere2.setMaterial(new PhongMaterial(Color.Blue, Color.White, 16));
-plane.setMaterial(new CheckerMaterial(0.1))
+sphere1.setMaterial(new PhongMaterial(new Color(0.5, 0.8, 1), Color.White, 16, 0.25));
+sphere2.setMaterial(new PhongMaterial(Color.Blue, Color.White, 16, 0.25));
+plane.setMaterial(new CheckerMaterial(0.1, 0.5))
+
+// export const renderTestScene = {
+//   scene: new GeometrySet([sphere1, sphere2, plane]),
+//   camera: new PerspectiveCamera(new Vector3D(0, 5, 15), new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), 90)
+// }
 
 export const renderTestScene = {
   scene: new GeometrySet([sphere1, sphere2, plane]),
-  camera: new PerspectiveCamera(new Vector3D(0, 5, 15), new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), 90)
+  camera: new PerspectiveCamera(new Vector3D(0, 5, 45), new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), 45)
 }
