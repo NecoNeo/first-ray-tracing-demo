@@ -1,4 +1,4 @@
-import { Vector3D } from "../vector/vector3d";
+import { Vector3D } from '../vector/vector3d';
 
 
 export class Ray3D {
